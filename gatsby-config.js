@@ -36,5 +36,19 @@ module.exports = {
           })),
       },
     },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`path`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type SitePage, list how to resolve the fields` values
+          SitePage: {
+            path: node => node.path,
+          },
+        },
+      },
+    },
   ],
 };
